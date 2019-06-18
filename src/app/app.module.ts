@@ -9,6 +9,8 @@ import { IndexComponent } from './index/index.component';
 import { GameComponent } from './game/game/game.component';
 
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { MyhttpService } from './myhttp.service';
 
 const appRoutes: Routes = [
   {
@@ -37,13 +39,14 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     GameModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [],
+  providers: [MyhttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
