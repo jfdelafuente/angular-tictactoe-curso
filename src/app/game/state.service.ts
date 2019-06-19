@@ -84,6 +84,8 @@ export class StateService {
 
       if ( this.toPlay(newValue)) {
         this.state.ganador = true;
+      } else {
+        this.state.ganador = false;
       }
       this.state.turn = newTurn;
       this.state.count = newCount + 1;
