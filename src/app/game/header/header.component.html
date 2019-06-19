@@ -1,7 +1,10 @@
-<p *ngIf="!(_stateService.state$ | async).ganador &&
-(_stateService.state$ | async).count != 9">
-Turn of {{ (_stateService.state$ | async).turn == 'PLAYERX' ? "Player 1 - Xs" : "Player 2 - 0s" }}
-</p>
-<p *ngIf="(_stateService.state$ | async).ganador">
-There is a winner:  {{ (_stateService.state$ | async).turn == 'PLAYERX' ? "Player 2 - 0s" : "Player 1 - Xs" }}
-</p>
+<header>
+	<h3>Welcome {{ (_stateService.state$ | async).player_name }}</h3>
+  <p *ngIf="!(_stateService.state$ | async).ganador &&
+  (_stateService.state$ | async).count != 9">
+  Turn of {{ (_stateService.state$ | async).turn == 'PLAYERX' ? "Player 1 - Xs" : "Player 2 - 0s" }}
+  </p>
+  <p *ngIf="(_stateService.state$ | async).ganador">
+  There is a winner:  {{ (_stateService.state$ | async).turn == 'PLAYERX' ? "Player 2 - 0s" : "Player 1 - Xs" }}
+  </p>
+</header>

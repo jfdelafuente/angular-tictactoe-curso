@@ -7,10 +7,12 @@ import { SquareComponent } from './square/square.component';
 import { StateService } from './state.service';
 import { FooterComponent } from './footer/footer.component';
 import { ResetComponent } from './reset/reset.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
     GameComponent

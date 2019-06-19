@@ -5,7 +5,8 @@ export interface State {
     turn: string,
     values: string[][],
     count: number,
-    ganador: boolean
+    ganador: boolean,
+    player_name: string
 }
 
 @Injectable({
@@ -26,7 +27,8 @@ export class StateService {
 	      ['-','-','-']
 	    ],
       count: 0,
-      ganador: false
+      ganador: false,
+      player_name: ''
 	  };
 	  this._state$ = new BehaviorSubject(initialState);
   }
@@ -99,7 +101,8 @@ export class StateService {
         ['-','-','-']
       ],
       count: 0,
-      ganador: false
+      ganador: false,
+      player_name: ''
     };
   }
 

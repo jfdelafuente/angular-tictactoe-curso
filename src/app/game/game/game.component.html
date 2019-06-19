@@ -1,4 +1,6 @@
 <div *ngIf="_status == 'fetching'">Loading...</div>
-<app-header *ngIf="_status == 'success'"></app-header>
-<app-board *ngIf="_status == 'success'"></app-board>
+<app-header *ngIf="_status === 'success'"></app-header>
+<app-board  *ngIf="_status === 'success'"></app-board>
+<app-footer *ngIf="_status === 'success'"></app-footer>
+<app-reset *ngIf="_status === 'success'"></app-reset>
 <h3 *ngIf="_status !== 'success' && _status !== 'fetching'">Error getting state from server. The error was: {{ _status }}</h3>
