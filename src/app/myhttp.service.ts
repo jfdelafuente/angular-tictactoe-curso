@@ -11,4 +11,8 @@ export class MyhttpService {
   getSavedGame () {
   	return this.httpClient.get('https://api.myjson.com/bins/17f1rh');
   }
+
+  postSavedGame() {
+    
+  }
 }
