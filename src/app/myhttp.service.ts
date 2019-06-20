@@ -9,6 +9,6 @@ export class MyhttpService {
   constructor(private httpClient: HttpClient) { }
 
   getSavedGame () {
-  	return this.httpClient.get('https://api.myjson.com/bins/i216a');
+  	return this.httpClient.get('https://api.myjson.com/bins/17f1rh');
   }
 }
