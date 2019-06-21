@@ -26,6 +26,11 @@ export class GameComponent implements OnInit {
   	this._stateService = stateService;
   	if (route.snapshot.data.continue) {
   		myhttpService.getSavedGame().subscribe((state:State) => {
+        console.log("Contador: " + state.count);
+        console.log("Player: " + state.player_name);
+        console.log("es ganador?: " + state.ganador);
+        console.log("Turno: " + state.turn);
+        console.log("Jugada: " + state.values);
   			stateService.state = state;
   			this._status = 'success';
   		}, error => {
