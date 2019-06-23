@@ -1,18 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { StateService, State } from './game/state.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MyhttpService {
 
-  constructor(private httpClient: HttpClient) { }
+  private backendUrl: string = 'https://api.myjson.com/bins'
+  
+  constructor(private httpClient: HttpClient, stateService: StateService) { }
 
-  getSavedGame () {
-  	return this.httpClient.get('https://api.myjson.com/bins/17f1rh');
+
+  getSavedGame (path: string) {
+  	return this.httpClient.get(this.backendUrl + path);
   }
 
-  postSavedGame() {
+  postSavedGame(player: StateService) {
+    return this.httpClient.post(this.backendUrl, player);
+  }
     
-  }
 }

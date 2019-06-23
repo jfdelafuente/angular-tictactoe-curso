@@ -17,6 +17,8 @@ export class GameComponent implements OnInit {
 
 	private _playerName: string;
 
+  private recurso: string = '/17f1rh';
+
 	_handleSubmitClick() {
     console.log(" player:", this._playerName);
 		this._stateService.state.player_name = this._playerName;
@@ -25,7 +27,7 @@ export class GameComponent implements OnInit {
   constructor(route: ActivatedRoute, stateService: StateService, myhttpService: MyhttpService) {
   	this._stateService = stateService;
   	if (route.snapshot.data.continue) {
-  		myhttpService.getSavedGame().subscribe((state:State) => {
+  		myhttpService.getSavedGame(this.recurso).subscribe((state:State) => {
         console.log("Contador: " + state.count);
         console.log("Player: " + state.player_name);
         console.log("es ganador?: " + state.ganador);
