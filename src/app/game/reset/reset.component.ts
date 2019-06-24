@@ -29,9 +29,9 @@ export class ResetComponent implements OnInit {
   _handleSaveGameClick() {
     console.log("Save click");
     this._myhttpService.postSavedGame(this._stateService.state).subscribe((state:State) => {
-        console.log("saved Player", state);
+        console.log("saved Player", state.uri);
       }, error => {
-  			console.log("ERROR: saved Player", );
+  			console.log("ERROR saved Player:", error );
   		});
   }
 

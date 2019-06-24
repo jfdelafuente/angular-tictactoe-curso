@@ -1,0 +1,16 @@
+.flex { 
+  display: flex; 
+  flex-direction: column; 
+  width: 80%; 
+  list-style-type: none;
+  justify-content: flex-end;
+}
+  
+  .flex li { 
+    position: relative;
+    background-color: #EEcccE;
+    margin: .5em;
+    padding: .3em 0;
+    height: 1.6em;
+    border-radius: 4px;
+  }

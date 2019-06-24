@@ -109,7 +109,7 @@ export class StateService {
   }
 
   saveGame() {
-    console.log(this.state);
+    console.log("state.service", this.state);
 
   }
 

@@ -13,7 +13,8 @@ export class MyhttpService {
 
 
   getSavedGame (path: string) {
-  	return this.httpClient.get(this.backendUrl + path);
+    console.log("llamando ...", this.backendUrl + '/'+ path )
+  	return this.httpClient.get(this.backendUrl + '/'+ path);
   }
 
   postSavedGame(player: StateService) {

@@ -11,6 +11,9 @@ import { GameComponent } from './game/game/game.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { MyhttpService } from './myhttp.service';
+import { ListComponent } from './list/list.component';
+import { ListService } from './list.service';
+import { MessegesService } from './messeges.service';
 
 const appRoutes: Routes = [
   {
@@ -26,6 +29,15 @@ const appRoutes: Routes = [
     component: GameComponent,
     data: {continue: true}
   },
+  {
+    path: 'continue/:id',
+    component: GameComponent,
+    data: {continue: true}
+  },
+    {
+    path: 'list',
+    component: ListComponent
+  },
   { path: '',
     redirectTo: '/index',
     pathMatch: 'full'
@@ -35,18 +47,18 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    IndexComponent
+    IndexComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     GameModule,
     RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      appRoutes
     )
   ],
-  providers: [MyhttpService],
+  providers: [MyhttpService, ListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
