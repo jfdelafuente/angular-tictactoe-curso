@@ -9,18 +9,32 @@ import { List } from './../list';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
+/**
     games: List[] = [
   { id: "1evum5", name: "new game pepe" },
   { id: "17f1rh", name: "new game enrique" },
 ];
+*/
+
+  private games: Array<List>;
+
 
   constructor(public listService: ListService) { }
 
-  delete(game: string) {
-    console.log("delete", game)
+  deleteGame(game: List) {
+    console.log('delete', game.id);
+    this.listService.deleteGame(game);
+    this.fetchGames();
   }
 
   ngOnInit() {
+    this.fetchGames();
+  }
+
+  fetchGames(): void {
+    console.log('fetch games');
+    this.games = this.listService.getGames();
+    console.log('fech:', this.games);
   }
 
 }

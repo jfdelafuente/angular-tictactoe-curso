@@ -108,9 +108,4 @@ export class StateService {
     };
   }
 
-  saveGame() {
-    console.log("state.service", this.state);
-
-  }
-
 }

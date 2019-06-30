@@ -1,10 +1,12 @@
 <h2>My Game List</h2>
+<div>
 <ul class="flex">
   <li *ngFor="let game of games">
     <div class="games">
     <span class="nombre">{{game.name}}   </span>
-    <a routerLink="/continue/{{game.id}}">Continue</a>
-    <button class="delete" title="delete" (click)="delete(game)">Delete</button>
+    <button class="btn" [routerLink]="['/continue',game.id]">Continue</button>
+    <button class="btn" (click)="deleteGame(game)">Delete</button>
       </div>
   </li>
 </ul>
+</div>

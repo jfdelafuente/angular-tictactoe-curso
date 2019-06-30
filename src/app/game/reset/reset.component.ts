@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StateService, State } from './../state.service';
 import { MyhttpService } from './../../myhttp.service';
-
+import { ListService } from './../../list.service';
 
 @Component({
   selector: 'app-reset',
@@ -12,10 +12,12 @@ export class ResetComponent implements OnInit {
 
   private _stateService:StateService;
   private _myhttpService: MyhttpService;
+  private _listService: ListService;
 
-  constructor(stateService:StateService, myhttpService: MyhttpService) {
+  constructor(stateService:StateService, myhttpService: MyhttpService, listService: ListService) {
     this._stateService = stateService;
     this._myhttpService = myhttpService;
+    this._listService = listService;
   }
 
   ngOnInit() {
