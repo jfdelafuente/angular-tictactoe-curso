@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { StateService, State } from './../state.service';
 import { MyhttpService } from './../../myhttp.service';
 import { List } from './../../list';
+import { ListService } from './../../list.service';
 
 @Component({
   selector: 'app-game',
@@ -14,7 +15,7 @@ export class GameComponent implements OnInit {
 	private _status: string = 'fetching';
 
 	private _stateService: StateService;
-
+  private _listService: ListService;
 	private _playerName: string;
 
   private recurso: string;
@@ -24,11 +25,11 @@ export class GameComponent implements OnInit {
 		this._stateService.state.player_name = this._playerName;
 	}
 
-  constructor(route: ActivatedRoute, stateService: StateService, myhttpService: MyhttpService) {
+  constructor(route: ActivatedRoute, stateService: StateService, listService: ListService, myhttpService: MyhttpService) {
   	this._stateService = stateService;
-   (route.snapshot.paramMap.get('id')) ? this.recurso = route.snapshot.paramMap.get('id') : this.recurso="i216a";
-    console.log("rec ", this.recurso);
-  	if (route.snapshot.data.continue) {
+    this._listService = listService;
+    if (route.snapshot.data.continue) {
+      (route.snapshot.paramMap.get('id')) ? this.recurso = route.snapshot.paramMap.get('id') : (this._listService.latest) ? this.recurso = this._listService.latest : this.recurso="i216a";
       myhttpService.getSavedGame(this.recurso).subscribe((state:State) => {
   			stateService.state = state;
   			this._status = 'success';
@@ -42,7 +43,6 @@ export class GameComponent implements OnInit {
   }
 
   ngOnInit() {
-
   }
 
 }

@@ -1,16 +1,37 @@
 .flex { 
-  display: flex; 
-  flex-direction: column; 
-  width: 80%; 
-  list-style-type: none;
-  justify-content: flex-end;
+ height: 100px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ flex-direction: column;
+     background: #d9dee2;
 }
   
   .flex li { 
     position: relative;
-    background-color: #EEcccE;
     margin: .5em;
     padding: .3em 0;
     height: 1.6em;
     border-radius: 4px;
+
   }
+
+ .flex button {
+  height: 30px;
+  width: 100px;
+  border-radius: 8px;
+  background: #0168b3;
+  color: white;
+  border-style: outset;
+  border-color: #0168b3;
+  margin-left: 10px;
+  font: bold 15px arial, sans-serif;
+  text-shadow:none;
+  cursor: pointer;
+}
+
+.flex button:hover {
+  background-color: #07c;
+  border-color: #005999;
+  box-shadow: inset 0 1px 0 #3af;
+}
